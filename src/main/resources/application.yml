@@ -1,12 +1,8 @@
 spring:
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: "jdbc:postgresql://localhost:5432/paperDelivery"
-    username: postgres
-    password: isa406
+    url: "jdbc:mysql://localhost:5432/paperDelivery"
+    username: root
+    password: uIMvGp:QU6Mm
 
 management:
   endpoints:
