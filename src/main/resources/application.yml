@@ -6,6 +6,7 @@ spring:
   datasource:
     url: "jdbc:postgresql://localhost:5432/paperDelivery"
     username: postgres
+    password: isa406
 
 management:
   endpoints:
