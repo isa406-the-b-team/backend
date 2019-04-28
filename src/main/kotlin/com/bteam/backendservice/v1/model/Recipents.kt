@@ -1,30 +1,28 @@
 package com.bteam.backendservice.v1.model
 
-import org.hibernate.annotations.Table
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.ManyToOne
+import javax.persistence.*
 
 @Entity
-@Table("recipients")
+@Table(name = "recipients")
 data class Recipents(
     @Id
-    @Column("recipientid")
-    val id: Int,
-    @Column("fname")
-    val firstName: String?,
-    @Column("lname")
-    val lastName: String?,
-    @ManyToOne
-    @Column("routeid")
-    val route: Route,
-    @Column("street")
+    @Column(name = "recipientid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int = 0,
+    @Column(name = "fname")
+    val firstName: String? = null,
+    @Column(name = "lname")
+    val lastName: String? = null,
+    @Column(name = "routeid")
+    val route: String,
+    @Column(name = "street")
     val street: String,
-    @Column("city")
+    @Column(name = "city")
     val city: String,
-    @Column("state")
+    @Column(name = "state")
     val state: String,
-    @Column("zip")
-    val zip: Int
+    @Column(name = "zip")
+    val zip: Int,
+    @Column(name = "routeorder")
+    val order: Int
 )

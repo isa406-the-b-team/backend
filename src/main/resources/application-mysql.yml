@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: none
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        use-new-id-generator-mappings: false
+  datasource:
+    #url: "jdbc:mysql://10.36.0.92:3306/paperdelivery?serverTimezone=UTC&useLegacyDatetimeCode=false"
+    url: "jdbc:mysql://localhost:3306/paperdelivery?serverTimezone=UTC&useLegacyDatetimeCode=false"
+    username: root
+    password: uIMvGp:QU6Mm
+    validation-query: SELECT 1;
+
+
+

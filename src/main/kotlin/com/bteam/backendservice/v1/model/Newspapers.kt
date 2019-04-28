@@ -1,20 +1,14 @@
 package com.bteam.backendservice.v1.model
 
-import org.hibernate.annotations.Table
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
-@Table("newspapers")
+@Table(name = "newspapers")
 data class Newspapers(
     @Id
-    @Column("paperid")
-    val paperId: Int,
-    @Column("papername") // PaperCodes
-    val name: String,
-    @Column("distscale")
-    val scale: String?,
-    @Column("distscheme")
-    val scheme: String?
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "paperid")
+    val paperId: Int = 0,
+    @Column(name = "papername") // PaperCodes
+    val name: String
 )

@@ -4,19 +4,18 @@ import java.sql.Date
 import javax.persistence.*
 
 @Entity
-@Table("cancellations")
+@Table(name = "cancellations")
 data class Cancellations(
     @Id
-    @Column("cancelid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cancelid")
     val id: Int,
-    @OneToMany
-    @Column("subscriptionid")
-    val subscriptions: Subscriptions,
-    @OneToMany
-    @Column("recipientid")
-    val recipents: Recipents,
-    @Column("cancelstart")
+    @Column(name = "subscriptionid")
+    val subscriptions: Int,
+    @Column(name = "recipientid")
+    val recipents: Int,
+    @Column(name = "cancelstart")
     val start: Date,
-    @Column("cancelstop")
+    @Column(name = "cancelstop")
     val stop: Date
 )

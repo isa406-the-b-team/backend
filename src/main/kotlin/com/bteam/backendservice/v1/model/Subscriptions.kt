@@ -1,24 +1,25 @@
 package com.bteam.backendservice.v1.model
 
-import java.sql.Date
+import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-@Table("subscriptions")
+@Table(name = "subscriptions")
 data class Subscriptions (
     @Id
-    @Column("subscriptionid")
-    val id: Int,
-    @ManyToOne
-    @Column("paperId")
-    val paper: Newspapers,
-    @ManyToOne
-    @Column("recipientid")
-    val recipient: Recipents,
-    @Column("datecreated")
-    val datecreated: Date,
-    @Column("dateended")
-    val dateended: Date?
+    @Column(name = "subscriptionid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int = 0,
+    @Column(name = "paperId")
+    val paper: Int,
+    @Column(name = "recipientid")
+    val recipient: Int,
+    @Column(name = "datecreated")
+    val datecreated: LocalDateTime,
+    @Column(name = "dateended")
+    val dateended: LocalDateTime? = null,
+    @Column(name = "deliverydays")
+    val days: Byte
 )
 
 /*
@@ -66,12 +67,4 @@ data class Subscriptions (
 
     }
  */
-
-/*
-    retrieving newspapers
-    {
-        newspapers: [<newspapercodes>]
-
-    }
-
- */
+*/
