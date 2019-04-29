@@ -82,6 +82,12 @@ class DatabaseService(
        }
     }
 
+    fun getRouteIds(): List<String> {
+        return routeRepository.findAll().map {
+            it.routeid
+        }
+    }
+
     fun getRoute(routeName: String): List<com.bteam.backendservice.v1.model.request.Route> {
         return recipentsRepository.findAll().filter { it.route == routeName }.sortedBy { it.order }.map {recp ->
             val subscriptions = subscriptionsRepository.findAll().filter { recp.id == it.recipient }

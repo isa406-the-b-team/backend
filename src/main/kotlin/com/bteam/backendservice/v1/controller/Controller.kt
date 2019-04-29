@@ -73,6 +73,16 @@ class Controller(
         }
     }
 
+    @GetMapping("/route")
+    fun getRoutes(): HttpEntity<Response<List<String>>>  {
+        return HttpEntity(
+            Response(
+                data = databaseService.getNewspapers()
+            )
+        )
+
+    }
+
     @GetMapping("/route/{routeId}")
     fun getRoute(@RequestParam("routeId") routeId: String): HttpEntity<Response<RouteResponse>> {
         return HttpEntity(
