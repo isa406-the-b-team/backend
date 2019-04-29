@@ -77,7 +77,7 @@ class Controller(
     fun getRoutes(): HttpEntity<Response<List<String>>>  {
         return HttpEntity(
             Response(
-                data = databaseService.getNewspapers()
+                data = databaseService.getRouteIds()
             )
         )
 

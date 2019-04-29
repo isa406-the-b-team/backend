@@ -50,7 +50,7 @@ class DatabaseService(
                    inUse = true
                )
            )
-           routeRequest.routes.forEachIndexed { index, route ->
+           routeRequest.recipients.forEachIndexed { index, route ->
                val saved = recipentsRepository.save(Recipents(
                    route = routeId.routeid,
                    street = route.street1,
