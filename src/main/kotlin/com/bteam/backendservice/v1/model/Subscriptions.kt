@@ -26,7 +26,7 @@ data class Subscriptions (
     adding routes
     {
         routeId: String
-        routes: [
+        recipients: [
             {
                 street1: String,
                 city: String,
@@ -50,7 +50,7 @@ data class Subscriptions (
     Get /*/:routeId
     {
 
-        routes: [
+        recipients: [
             {
                 street1: String,
                 city: String,

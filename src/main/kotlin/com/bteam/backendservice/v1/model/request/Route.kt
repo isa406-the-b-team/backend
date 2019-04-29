@@ -15,5 +15,5 @@ data class Route (
 
 data class RouteRequest (
     val routeId: String,
-    val routes: List<Route>
+    val recipients: List<Route>
 )
