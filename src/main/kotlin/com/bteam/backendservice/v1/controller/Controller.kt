@@ -114,7 +114,7 @@ class Controller(
         return HttpEntity(
             Response(
                 RouteResponse(
-                    recipients = listOf(1,2,3,4,5)
+                    recipients = databaseService.getRoute(routeId)
                 )
             )
         )
