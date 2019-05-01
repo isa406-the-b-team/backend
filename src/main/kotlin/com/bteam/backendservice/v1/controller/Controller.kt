@@ -90,6 +90,15 @@ class Controller(
         }
     }
 
+    @DeleteMapping("/newspaper/{newspaperCode}")
+    fun deleteNewspapers(@RequestParam("newspaperCode") newspaperCode: String): HttpEntity<Response<String>> {
+        databaseService.deleteNewspapers(newspaperCode)
+        return HttpEntity(
+            Response("Deleted")
+        )
+    }
+
+
     @GetMapping("/route")
     fun getRoutes(): HttpEntity<Response<List<String>>>  {
         return HttpEntity(

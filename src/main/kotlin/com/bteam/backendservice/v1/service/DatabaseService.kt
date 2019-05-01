@@ -42,6 +42,14 @@ class DatabaseService(
         }
     }
 
+    fun deleteNewspapers(paperCode: String) {
+        newspapersRepository.findAll().filter {
+            it.name == paperCode
+        }.forEach {
+            newspapersRepository.delete(it)
+        }
+    }
+
     fun addRoute(routeRequest: RouteRequest): Boolean {
        return try {
            val routeId = routeRepository.save(
