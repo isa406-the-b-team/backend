@@ -28,12 +28,12 @@ class Controller(
     }
 
     @GetMapping("/newspaper/{routeId}")
-    fun getNewpaperCount(@RequestParam("routeId") routeId: String): HttpEntity<Response<Map<String, Map<String, Int>>>> {
+    fun getNewpaperCount(@RequestParam("routeId") routeId: String): HttpEntity<Response<Map<String, List<Map<String,Any>>>>> {
         return HttpEntity(
             Response(
-                mapOf("newspapers" to mapOf(
-                    "test1" to 7,
-                    "test7" to 5
+                mapOf("newspapers" to listOf(
+                    mapOf("code" to "test1", "number" to 7),
+                    mapOf("code" to "test7", "number" to 5)
                 ))
             )
         )
