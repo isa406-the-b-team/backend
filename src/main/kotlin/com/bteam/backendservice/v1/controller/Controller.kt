@@ -12,6 +12,7 @@ import org.springframework.http.HttpEntity
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import javax.websocket.server.PathParam
 
 @RestController
 class Controller(
@@ -28,7 +29,7 @@ class Controller(
     }
 
     @GetMapping("/newspaper/{routeId}")
-    fun getNewpaperCount(@RequestParam("routeId") routeId: String): HttpEntity<Response<Map<String, List<Map<String,Any>>>>> {
+    fun getNewpaperCount(@PathVariable("routeId") routeId: String): HttpEntity<Response<Map<String, List<Map<String,Any>>>>> {
         return HttpEntity(
             Response(
                 mapOf("newspapers" to listOf(
@@ -91,7 +92,7 @@ class Controller(
     }
 
     @DeleteMapping("/newspaper/{newspaperCode}")
-    fun deleteNewspapers(@RequestParam("newspaperCode") newspaperCode: String): HttpEntity<Response<String>> {
+    fun deleteNewspapers(@PathParam("newspaperCode") newspaperCode: String): HttpEntity<Response<String>> {
         databaseService.deleteNewspapers(newspaperCode)
         return HttpEntity(
             Response("Deleted")
@@ -110,7 +111,7 @@ class Controller(
     }
 
     @GetMapping("/route/{routeId}")
-    fun getRoute(@RequestParam("routeId") routeId: String): HttpEntity<Response<RouteResponse>> {
+    fun getRoute(@PathVariable("routeId") routeId: String): HttpEntity<Response<RouteResponse>> {
         return HttpEntity(
             Response(
                 RouteResponse(
@@ -121,7 +122,7 @@ class Controller(
     }
 
     @GetMapping("/route/recipient/{recipientId}")
-    fun getRecipient(@RequestParam("recipientId") recipientId: String): HttpEntity<Response<RecipientRespones>> {
+    fun getRecipient(@PathVariable("recipientId") recipientId: String): HttpEntity<Response<RecipientRespones>> {
         return HttpEntity(
             Response(
                 RecipientRespones(
