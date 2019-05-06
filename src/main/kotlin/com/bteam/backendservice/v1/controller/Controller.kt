@@ -92,7 +92,7 @@ class Controller(
     }
 
     @DeleteMapping("/newspaper/{newspaperCode}")
-    fun deleteNewspapers(@PathParam("newspaperCode") newspaperCode: String): HttpEntity<Response<String>> {
+    fun deleteNewspapers(@PathVariable("newspaperCode") newspaperCode: String?): HttpEntity<Response<String>> {
         databaseService.deleteNewspapers(newspaperCode)
         return HttpEntity(
             Response("Deleted")
