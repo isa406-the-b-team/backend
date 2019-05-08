@@ -10,7 +10,7 @@ data class Subscriptions (
     @Column(name = "subscriptionid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int = 0,
-    @Column(name = "paperId")
+    @Column(name = "paperid")
     val paper: Int,
     @Column(name = "recipientid")
     val recipient: Int,
